@@ -177,7 +177,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIR = [
     os.path.join(PROJECT_ROOT,'static'),
 ]
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 #MEDIA_URL = '/media/'
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #DEFAULT_FILE_STORAGE = 'api.storages.S3DefaultStorage'
@@ -190,8 +189,9 @@ AWS_QUERYSTRING_AUTH = False
 AWS_S3_HOST = 's3.%s.amazonaws.com' % AWS_REGION
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 # Static Setting
-STATIC_URL = "https://%s/static/" % AWS_S3_CUSTOM_DOMAIN
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+#STATIC_URL = "https://%s/static/" % AWS_S3_CUSTOM_DOMAIN
+#STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #Media Setting
 MEDIA_URL = "https://%s/media/" % AWS_S3_CUSTOM_DOMAIN
