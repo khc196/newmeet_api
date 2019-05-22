@@ -42,5 +42,4 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'name'
-    REQUIRED_FIELDS = ['id']
 
