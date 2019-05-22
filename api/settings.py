@@ -177,16 +177,26 @@ STATIC_URL = '/static/'
 STATICFILES_DIR = [
     os.path.join(PROJECT_ROOT,'static'),
 ]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 #MEDIA_URL = '/media/'
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#DEFAULT_FILE_STORAGE = 'api.storages.S3DefaultStorage'
 
-
-DEFAULT_FILE_STORAGE = 'api.storages.S3DefaultStorage'
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', 'AKIA3IAVJPC3KK5C6C44')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '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')
 AWS_STORAGE_BUCKET_NAME = 'newmeet'
-MEDIA_URL = 'http://s3.ap-northeast-2.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
+AWS_REGION = 'ap-northeast-2'
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_HOST = 's3.%s.amazonaws.com' % AWS_REGION
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAM
+# Static Setting
+STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+#Media Setting
+MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 
 #channel_layer
