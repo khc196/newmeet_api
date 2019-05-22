@@ -73,7 +73,7 @@ AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 )
-SITE_ID=1
+SITE_ID=2
 ACCOUNT_AUTHENTICATION_METHOD = 'id'
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_USERNAME_REQUIRED = False
@@ -181,11 +181,12 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 #MEDIA_URL = '/media/'
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-DEFAULT_FILE_STORAGE = 'config.storages.S3DefaultStorage'
+
+DEFAULT_FILE_STORAGE = 'api.storages.S3DefaultStorage'
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', 'AKIA3IAVJPC3KK5C6C44')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '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')
 AWS_STORAGE_BUCKET_NAME = 'newmeet'
-MEDIA_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+MEDIA_URL = 'http://s3.ap-northeast-2.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 
 #channel_layer
