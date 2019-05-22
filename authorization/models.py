@@ -5,7 +5,7 @@ from django.contrib.auth.models import PermissionsMixin
 
 class UserManager(BaseUserManager):
     def create_user(self, name, password=None):
-        if not nickname:
+        if not name:
             raise ValueError('Users must have an name')
 
         user = self.model(
