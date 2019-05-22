@@ -16,4 +16,3 @@ project_folder = os.path.expanduser('~/api')
 load_dotenv(os.path.join(project_folder, '.env'))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "api.settings")
 
-application = get_wsgi_application()

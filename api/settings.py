@@ -191,7 +191,6 @@ CHANNEL_LAYERS = {
         },
     },
 }
-ASGI_APPLICATION = 'api.routing.application'
 
 import dj_database_url
 db_from_env = dj_database_url.config()
