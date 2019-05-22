@@ -181,3 +181,18 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
+
+#channel_layer
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+        },
+    },
+}
+ASGI_APPLICATION = 'daepo_web.routing.application'
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
