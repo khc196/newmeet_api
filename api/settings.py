@@ -23,7 +23,7 @@ environ.Env.read_env() # reading .env file
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -188,7 +188,7 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 # Static Setting
 #STATIC_URL = "https://%s/static/" % AWS_S3_CUSTOM_DOMAIN
 #STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 KAKAO_MAPS_API_KEY = env('KAKAO_MAPS_API_KEY')
 

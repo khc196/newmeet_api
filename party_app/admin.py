@@ -40,7 +40,7 @@ class PlaceAdmin(admin.ModelAdmin):
                 'all': ('admin/css/map.css',),
             }
             js = (
-                'https://dapi.kakao.com/v2/maps/sdk.js?appkey={}'.format(settings.KAKAO_MAPS_API_KEY),
+                'https://dapi.kakao.com/v2/maps/sdk.js?appkey={}&libraries=services'.format(settings.KAKAO_MAPS_API_KEY),
                 'admin/js/map.js',
             )
 
