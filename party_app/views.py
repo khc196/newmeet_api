@@ -34,10 +34,12 @@ class PartyListView(APIView, MyPaginationMixin):
     pagination_class = api_settings.DEFAULT_PAGINATION_CLASS
     serializer_class = PartyListSerializer
     def get(self, request, *args, **kwargs):
+        print(request.user)
         try: 
             queryset = Party.objects.prefetch_related('place')
             if request.user.is_authenticated:
-                queryset = queryset.filter(
+                now=datetime.date.today()
+                queryset = queryset.filter(start_datetime__gt=now
                 ).annotate(
                     party_like1 = FilteredRelation(
                         'party_like',
@@ -50,7 +52,7 @@ class PartyListView(APIView, MyPaginationMixin):
                     )   
                 )
             else:
-               queryset = queryset.annotate(
+               queryset = queryset.filter(start_datetime__gt=now).annotate(
                     is_liked=Value(False, BooleanField()),
                 )
             queryset = queryset.order_by('start_datetime')
