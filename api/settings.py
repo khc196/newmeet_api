@@ -20,7 +20,7 @@ environ.Env.read_env() # reading .env file
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('DJANGO_SECRET_KEY')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', env('DJANGO_SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -190,7 +190,7 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 #STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-KAKAO_MAPS_API_KEY = env('KAKAO_MAPS_API_KEY')
+KAKAO_MAPS_API_KEY = os.environ.get('KAKAO_MAPS_API_KEY', env('KAKAO_MAPS_API_KEY'))
 
 #Media Setting
 MEDIA_URL = "https://%s/media/" % AWS_S3_CUSTOM_DOMAIN
