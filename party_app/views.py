@@ -36,10 +36,10 @@ class PartyListView(APIView, MyPaginationMixin):
     def get(self, request, *args, **kwargs):
         print(request.user)
         try: 
+            now=datetime.datetime.today()
             queryset = Party.objects.prefetch_related('place')
             if request.user.is_authenticated:
-                now=datetime.date.today()
-                queryset = queryset.filter(start_datetime__gt=now
+                queryset = queryset.filter(start_datetime__gte=now
                 ).annotate(
                     party_like1 = FilteredRelation(
                         'party_like',
@@ -52,7 +52,7 @@ class PartyListView(APIView, MyPaginationMixin):
                     )   
                 )
             else:
-               queryset = queryset.filter(start_datetime__gt=now).annotate(
+               queryset = queryset.filter(start_datetime__gte=now).annotate(
                     is_liked=Value(False, BooleanField()),
                 )
             queryset = queryset.order_by('start_datetime')
