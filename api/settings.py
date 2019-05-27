@@ -178,8 +178,8 @@ STATICFILES_DIRS = (
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #DEFAULT_FILE_STORAGE = 'api.storages.S3DefaultStorage'
 
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', 'AKIA3IAVJPC3KK5C6C44')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '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')
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'newmeet'
 AWS_REGION = 'ap-northeast-2'
 AWS_QUERYSTRING_AUTH = False
@@ -195,7 +195,7 @@ KAKAO_MAPS_API_KEY = os.environ.get('KAKAO_MAPS_API_KEY', env('KAKAO_MAPS_API_KE
 #Media Setting
 MEDIA_URL = "https://%s/media/" % AWS_S3_CUSTOM_DOMAIN
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-
+MEDIAFILES_LOCATION = 'media'
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 
 #channel_layer
