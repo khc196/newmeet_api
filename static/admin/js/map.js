@@ -245,8 +245,8 @@
     infowindow.open(map, marker);
   }
   function setFormPosition(marker) {
-    var lan = marker.getPosition()['ib'];
-    var lon = marker.getPosition()['jb'];
+    var lan = marker.getPosition()['jb'];
+    var lon = marker.getPosition()['ib'];
     document.getElementById('id_latitude').value = lan;
     document.getElementById('id_longitude').value = lon;
   }
