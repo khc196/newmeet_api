@@ -26,7 +26,7 @@ urlpatterns = [
     #url(r'^index/', include('main.urls')),
     url(r'^api/', include(party_url)),
     url(r'^api/', include(auth_url)),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
