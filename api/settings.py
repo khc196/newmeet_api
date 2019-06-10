@@ -178,7 +178,7 @@ STATICFILES_DIRS = (
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = 'newmeet'
+AWS_STORAGE_BUCKET_NAME = 'newmeet-bucket'
 AWS_REGION = 'ap-northeast-2'
 AWS_QUERYSTRING_AUTH = False
 AWS_S3_HOST = 's3.%s.amazonaws.com' % AWS_REGION
