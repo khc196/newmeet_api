@@ -68,23 +68,23 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+ACCOUNT_AUTHENTICATION_METHOD = 'id'
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_USER_MODEL_EMAIL_FIELD = None
+ACCOUNT_USERNAME_REQUIRED = False
+AUTH_USER_MODEL = 'authorization.User'
+
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 )
-SITE_ID=1
+SITE_ID=2
 
 SOCIALACCOUNT_ADAPTER = 'authorization.adapter.SocialAccountAdapter'
 
-AUTH_USER_MODEL = 'authorization.User'
 REST_AUTH_SERIALIZERS = { 'USER_DETAILS_SERIALIZER':'authorization.serializers.UserSerializer' }
 
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USER_USERNAME_FIELD = None
-ACCOUNT_USER_EMAIL_FIELD = None
-ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_USERNAME_REQUIRED = False
+
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
