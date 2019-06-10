@@ -73,12 +73,16 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 SITE_ID=1
-ACCOUNT_AUTHENTICATION_METHOD = 'id'
-ACCOUNT_USER_USERNAME_FIELD = None
+
 SOCIALACCOUNT_ADAPTER = 'authorization.adapter.SocialAccountAdapter'
 
 AUTH_USER_MODEL = 'authorization.User'
 REST_AUTH_SERIALIZERS = { 'USER_DETAILS_SERIALIZER':'authorization.serializers.UserSerializer' }
+
+ACCOUNT_AUTHENTICATION_METHOD = 'id'
+ACCOUNT_USER_USERNAME_FIELD = None
+ACCOUNT_USER_EMAIL_FIELD = None
+
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = (
