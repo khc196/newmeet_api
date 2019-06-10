@@ -79,6 +79,7 @@ SOCIALACCOUNT_ADAPTER = 'authorization.adapter.SocialAccountAdapter'
 AUTH_USER_MODEL = 'authorization.User'
 REST_AUTH_SERIALIZERS = { 'USER_DETAILS_SERIALIZER':'authorization.serializers.UserSerializer' }
 
+ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'id'
 ACCOUNT_USER_USERNAME_FIELD = None
 ACCOUNT_USER_EMAIL_FIELD = None
