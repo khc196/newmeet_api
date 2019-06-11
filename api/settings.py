@@ -70,7 +70,6 @@ MIDDLEWARE = [
 ]
 ACCOUNT_AUTHENTICATION_METHOD = 'id'
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-ACCOUNT_USER_MODEL_EMAIL_FIELD = None
 ACCOUNT_USERNAME_REQUIRED = False
 AUTH_USER_MODEL = 'authorization.User'
 
@@ -175,7 +174,7 @@ USE_TZ = True
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'api/staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
      os.path.join(BASE_DIR, "static"),
