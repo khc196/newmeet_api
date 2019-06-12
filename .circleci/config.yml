@@ -49,16 +49,17 @@ jobs:
       - store_artifacts:
           path: test-reports
           destination: test-reports
-  deploy:
-    machine:
-      enabled: true
-    working_directory: ~/circleci-demo-workflows
-    steps:
-      - checkout
-      - run:
-          name: Deploy Master to Heroku
-          command: |
-            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP.git master
+          
+      - deploy:
+        machine:
+          enabled: true
+        working_directory: ~/circleci-demo-workflows
+        steps:
+          - checkout
+          - run:
+              name: Deploy Master to Heroku
+              command: |
+                git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP.git master
 
 
-              only: sequential-branch-filter
+                  only: sequential-branch-filter
