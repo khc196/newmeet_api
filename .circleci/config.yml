@@ -49,8 +49,8 @@ jobs:
       - store_artifacts:
           path: test-reports
           destination: test-reports
-  deploy:
-    production:
-      branch: master
-      heroku:
-        appname: newmeet
+      - deploy:
+        production:
+          branch: master
+          heroku:
+            appname: newmeet
