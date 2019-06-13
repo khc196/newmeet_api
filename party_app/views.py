@@ -55,7 +55,7 @@ class PartyListView(APIView, MyPaginationMixin):
                queryset = queryset.filter(Q(start_datetime__gte=now) | Q(end_datetime__gte=now)).annotate(
                     is_liked=Value(False, BooleanField()),
                 )
-            queryset = queryset.order_by('start_datetime')
+            queryset = queryset.order_by('start_datetime', 'like_count')
             page = self.paginate_queryset(queryset)
             
             if page is not None:
