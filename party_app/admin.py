@@ -10,7 +10,7 @@ class PartyAdmin(admin.ModelAdmin):
     list_display = ('name', 'party_type_name', 'place_name', 'start_datetime')
     list_filter = ('party_type', 'place')
     search_fileds = ('name')
-    fields = ('name', 'party_type', 'start_datetime', 'end_datetime', 'description', 'place')
+    fields = ('name', 'party_type', 'start_datetime', 'end_datetime', 'description', 'place', 'can_buy_ticket', 'can_prepurchase')
     inlines = [ PartyImageInline, ]
     def party_type_name(self, obj):
         partytype = PartyType.objects.get(id=obj.party_type.id)
