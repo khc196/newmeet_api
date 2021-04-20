@@ -4,7 +4,7 @@ asgi-redis==1.4.3
 asgiref==2.1.6
 async-timeout==2.0.1
 attrs==19.1.0
-autobahn==19.5.1
+autobahn==20.12.3
 Automat==0.7.0
 billiard==3.5.0.5
 boto==2.49.0
