@@ -10,7 +10,7 @@ billiard==3.5.0.5
 boto==2.49.0
 boto3==1.9.57
 botocore==1.12.57
-celery==4.2.1
+celery==5.2.2
 certifi==2019.3.9
 channels==2.0.2
 channels-redis==2.1.0
